@@ -34,10 +34,6 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-jar {
-    manifest {
-        attributes(
-                'Main-Class': 'com.fedex.Main' // Replace with your actual main class
-        )
-    }
+bootJar {
+    enabled = true
 }
