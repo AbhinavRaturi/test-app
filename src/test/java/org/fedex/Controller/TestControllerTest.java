@@ -3,32 +3,34 @@ package org.fedex.Controller;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.hamcrest.Matchers.equalTo;
+import org.springframework.test.util.ReflectionTestUtils;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest
-@AutoConfigureMockMvc
-public class TestControllerTest {
-
+@ContextConfiguration(classes = TestController.class)
+@TestPropertySource(locations = {"classpath:application.properties"})
+class TestControllerTest {
     @Autowired
-    private MockMvc mockMvc;
+    TestController testController;
+
+    @Value("${wiremock.url}")
+    private String wiremockURL;
 
     @Test
-    public void testApi() throws Exception {
-        MvcResult result = mockMvc.perform(get("/test-api"))
-                .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Hello")))
-                .andReturn();
+    void testApi() {
+        System.out.println(testController.testApi());
+        assertThat(testController.testApi()).isEqualTo("Hello");
+    }
 
-        String content = result.getResponse().getContentAsString();
-        System.out.println(content);
+    @Test
+    void getList() {
+        ReflectionTestUtils.setField(testController, "allowlistUrl", wiremockURL);
+        assertThat(testController.getList().isEnabled()).isTrue();
     }
 }
