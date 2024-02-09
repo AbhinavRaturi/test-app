@@ -1,0 +1,20 @@
+{
+  "id" : "ee483437-ed83-4bbd-878b-3d8975bb65f8",
+  "name" : "allowlist",
+  "request" : {
+    "url" : "/allowlist",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"enabled\":true,\"eais\":[\"APP4067\",\"APP6186\",\"APP3535681\",\"APP3536993\",\"APP1431\",\"APP5569\",\"APP5709\",\"APP3537009\",\"APP3535166\",\"APP7515\",\"APP3531591\",\"APP6867\",\"APP3535182\",\"APP3531635\",\"APP769736\",\"APP3531593\",\"APP5805\",\"APP5628\",\"APP6441\",\"APP3530933\",\"APP3531306\",\"APP3534458\",\"APP5117\",\"APP3534917\",\"APP3536372\",\"APP1948\",\"APP3530873\",\"APP6935\",\"APP4573\",\"APP247718\",\"APP6888\",\"APP1069\",\"APP6784\",\"APP274725\",\"APP422\",\"APP2008\",\"APP3536226\"]}",
+    "headers" : {
+      "Content-Type" : "application/json",
+      "Date" : "Wed, 24 Aug 2022 16:43:06 GMT",
+      "X-Vcap-Request-Id" : "6bdb670c-ab7d-4a35-677c-f759db99ffbf"
+    }
+  },
+  "uuid" : "ee483437-ed83-4bbd-878b-3d8975bb65f8",
+  "persistent" : true,
+  "insertionIndex" : 4
+}
