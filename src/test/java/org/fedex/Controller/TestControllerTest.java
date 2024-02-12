@@ -30,7 +30,13 @@ class TestControllerTest {
 
     @Test
     void getList() {
-        ReflectionTestUtils.setField(testController, "allowlistUrl", wiremockURL);
+        ReflectionTestUtils.setField(testController, "testUrl", wiremockURL);
         assertThat(testController.getList().isEnabled()).isTrue();
+    }
+
+    @Test
+    void getUserInfo() {
+        ReflectionTestUtils.setField(testController, "testUrl", wiremockURL);
+        assertThat(testController.getUserInfo().isEnabled()).isTrue();
     }
 }

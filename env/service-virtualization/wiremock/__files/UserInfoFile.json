@@ -1,0 +1,9 @@
+{
+  "EmployeeId": "5917567",
+  "Name": "Abhinav Raturi",
+  "Email": "abhinav.raturi@fedex.com",
+  "Role": "User",
+  "IsAdmin": "Yes",
+  "ManagerID": "12345",
+  "enabled": true
+}
